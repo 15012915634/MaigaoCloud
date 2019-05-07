@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: api-zuul
+server:
+  port: 1101
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@localhost:1001/eureka
+
+#路由配置
+zuul:
+  routes:
+    eureka-client: /eurekaClient/**     #真实服务名与地址映射
+  ignored-services: "*"                 #原真实服务名忽略，不能访问
+
